@@ -1,0 +1,60 @@
+.cardPage {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  padding: 16px;
+  align-content: flex-start;
+  border-bottom: 1px solid #111;
+  font-size: 14px;
+  font-family: Calibri, sans-serif;
+}
+
+.imageWrap {
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.cardPageImg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 245px;
+  height: 349px;
+}
+
+.desriptionWrap {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.desription {
+  margin-bottom: 16px;
+}
+
+.alistRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.alist {
+  width: 48%;
+  line-height: 1.7;
+  font-size: 12px;
+}
+
+.alistWide {
+  width: 100%;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}

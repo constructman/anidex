@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffff;
+}
+
+.navCover {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 156px;
+  height: 28px;
+  background-color: hsl(0deg 0% 13.33%);
+  border-radius: 18px;
+}
+
+.inputIcon {
+  width: 18px;
+  height: 18px;
+  margin: 0px 8px 0px 8px;
+  background-image: url('./src/search-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.searchBar {
+  width: 100px;
+  height: 18px;
+  background-color: hsl(0deg 0% 13.33%);
+  border: none;
+  font-size: 10px;
+  color: #fff;
+
+}
+
+.searchBar:focus {
+  outline: none;
+}
+
+.burgerCover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.burger {
+  background-image: url('./src/lines_menu_burger_icon_123889.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  margin-right: 18px;
+}
+
+.logo {
+  background-image: url('./src/brand-imdb-svgrepo-com.svg');
+  background-position: center;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
+

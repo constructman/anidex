@@ -1,0 +1,28 @@
+.dropDownCase {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  background-color: #333333;
+  margin-right: 18px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  margin-left: -5px;
+  cursor: pointer;
+}
+
+select {
+
+}
+
+.dropDownIcon {
+  width: 8px;
+  height: 8px;
+  background-image: url('../../components/Header/src/down-arrow-svgrepo-com.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}

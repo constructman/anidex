@@ -1,0 +1,33 @@
+.cardWrapper {
+  width: 14.28%;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 220px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 8px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.genres {
+  text-align: left;
+  font-size: 8px;
+}
