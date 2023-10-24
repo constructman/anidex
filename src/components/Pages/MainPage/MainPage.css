@@ -25,3 +25,7 @@ body {
   background-color: #333333;
   box-sizing: border-box;
 }
+
+.ant-space-item {
+  font-size: 16px;
+}
