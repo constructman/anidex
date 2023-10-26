@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space } from 'antd'
 import Card from '../../Card/Card.js'
-import axios from '../../../api/aixiosIntance'
+import { jikan } from '../../../api'
 import './MainPage.css'
 
 const items = [
@@ -12,11 +12,11 @@ const items = [
 ]
 
 function MainPage() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   async function fetch() {
     try{
-      const responce = await axios.get('https://api.jikan.moe/v4/anime');
+      const responce = await jikan.get('/anime');
       setData(responce.data.data);
     } catch(e) {
       console.log(e);

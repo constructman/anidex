@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
+import { rest } from "../../../api";
 import './Registration.css';
 
 function Registration() {
@@ -8,20 +8,13 @@ function Registration() {
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
 
-  const isAuth = () => {
-    
-  }
-
   const handleSubmit = (e) => {
-    const configuration = {
+    e.preventDefault();
+
+    rest('/register', {
       method: "post",
-      url: "https://localhost:5000/register",
-      data: {
-        email,
-        password,
-      },
-    };
-    axios(configuration)
+      data: { email, password },
+    })
       .then((result) => {console.log(result);})
       .catch((error) => {console.log(error);})
   }
@@ -33,7 +26,7 @@ function Registration() {
   // }
 
   return (
-    <form action="action_page.php" onSubmit={(e)=>handleSubmit(e)}>
+    <form onSubmit={(e)=>handleSubmit(e)}>
       <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>

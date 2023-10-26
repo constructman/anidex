@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.get("/isAuth", (req, res) => {
   console.log(req.cookies);
-  Session.findOne({ _id: req.cookies.sesionId })
+  Session.findOne({ _id: req.cookies.sessionId })
   .then((data) => {
     if (data){
       console.log(data);
@@ -53,7 +53,7 @@ app.post("/register", (request, response) => {
         .then((result) => {
           new Session({}).save().then(session =>{
             console.log(Session)
-            response.status(201).cookie('sesionId', session._id, { maxAge }).send({
+            response.status(201).cookie('sessionId', session._id, { maxAge }).send({
               message: "User Created Successfully",
               result,
             });
@@ -84,9 +84,12 @@ app.post('/login', (request, response) => {
 
   User
     .findOne({ email: request.body.email })
-    .then((user) => bcrypt.compare(request.body.password, user.password))
-    .then((passwordCheck) => {
-      let session;
+    .then((user) => ({
+      user,
+      passwordCheck: bcrypt.compare(request.body.password, user.password)
+    }))
+    .then(({ user, passwordCheck }) => {
+      // let session;
 
       if (!passwordCheck) {
         return response.status(400).send({
@@ -95,17 +98,29 @@ app.post('/login', (request, response) => {
         });
       }
 
-      session = request.session;
-      session.userid = request.body.email;
+      // session = request.session;
+      // session.userid = request.body.email;
+      new Session({}).save().then(session =>{
+        console.log(Session)
+        response
+        .status(201)
+        .cookie('sessionId', session._id, { maxAge })
+        .send({
+          message: "Loged in Successfully",
+          user,
+        });
+      });
 
       response.status(200).send({
         message: "Login Successful",
         email: request.body.email
       });
+      responce.redirect('/');
     })
     .catch((e) => {
       response.status(404).send({ message: "Email not found" });
     });
+
 });
 
 app.get('/logout',(req,res) => {
@@ -117,5 +132,3 @@ app.listen(port, () => {
   dbConnect();
   console.log(`Server is running on port: ${port}`);
 });
-
-
