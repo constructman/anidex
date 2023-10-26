@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react'
+import { rest } from "../../../api";
 import './Login.css';
 
-function Registration() {
+function Login() {
 
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    rest('/login', {
+      method: "post",
+      data: { email, password },
+    })
+      .then((result) => {console.log(result);})
+      .catch((error) => {console.log(error);})
+  }
 
   return (
   <>
-    <div class="container-login">
-      <form action="/action_page.php">
+    <div class="container-login" onSubmit={(e)=>handleSubmit(e)}>
+      <form>
         <div class="row-login">
           <h2 style="text-align:center">Login with Social Media or Manually</h2>
           <div class="vl">
@@ -32,9 +46,26 @@ function Registration() {
               <p>Or sign in manually:</p>
             </div>
 
-            <input className="input-login" type="text" name="username" placeholder="Username" required />
-            <input type="password" name="password" placeholder="Password" required />
-            <input type="submit" value="Login" />
+            <input
+              className="input-login"
+              type="text"
+              name="email"
+              placeholder="Enter email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <input
+              type="submit"
+              value="Login"
+              onClick={(e) => handleSubmit(e)}
+            />
           </div>
         </div>
       </form>
@@ -54,4 +85,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default Login;

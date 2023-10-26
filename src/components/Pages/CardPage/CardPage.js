@@ -1,6 +1,6 @@
 import { useEffect, useState, React } from 'react'
 import { useParams } from 'react-router-dom';
-import axios from '../../../api/aixiosIntance'
+import { jikan } from '../../../api'
 import { Link } from 'react-router-dom';
 import './CardPage.css';
 
@@ -14,7 +14,7 @@ function CardPage() {
   console.log(anime, 'ANI');
   async function fetch() {
     try{
-      const responce = await axios.get(`https://api.jikan.moe/v4/anime/${params.id}/full`);
+      const responce = await jikan.get(`/anime/${params.id}/full`);
       setAnime(responce.data.data);
     } catch(e) {
       console.log(e);
